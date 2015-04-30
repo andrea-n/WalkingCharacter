@@ -16,7 +16,7 @@ namespace WalkingCharacter
     public partial class UtilityForm : Form
     {
         public Character Character { get; private set; }
-        public List<IModifier> Animation { get; set; }
+        public BindingList<IModifier> Animation { get; set; }
         IGlobal global;
 
         public UtilityForm(IGlobal global)
@@ -24,7 +24,10 @@ namespace WalkingCharacter
             InitializeComponent();
             this.global = global;
             Character = new Character("WalkingCharacterBody");
+            Animation = new BindingList<IModifier>();
             listBoxAnimation.DataSource = Animation;
+            listBoxAnimation.DisplayMember = "Name";
+            listBoxAnimation.ValueMember = "Name";
         }
 
         private void UtilityForm_Load(object sender, EventArgs e)
@@ -67,9 +70,52 @@ namespace WalkingCharacter
         private void buttonAddFur_Click(object sender, EventArgs e)
         {
             FurDialog furdialog = new FurDialog();
-            if (furdialog.DialogResult == DialogResult.OK)
+            if (furdialog.ShowDialog() == DialogResult.OK)
             {
                 Animation.Add(furdialog.FurModifier);
+                Animation.ElementAt(0).Apply(Character);
+            }
+        }
+
+        private void listBoxAnimation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxAnimation.SelectedIndex != -1)
+            {
+                groupBoxEditAnimation.Enabled = true;
+            }
+            else
+            {
+                groupBoxEditAnimation.Enabled = false;
+            }
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            if (listBoxAnimation.SelectedIndex != -1)
+            {
+                Animation.RemoveAt(listBoxAnimation.SelectedIndex);
+            }
+        }
+
+        private void buttonUp_Click(object sender, EventArgs e)
+        {
+            int i = listBoxAnimation.SelectedIndex;
+            if (i != -1 && i > 1)
+            {
+                Animation.Insert(i - 2, Animation.ElementAt(i));
+                Animation.RemoveAt(i - 1);
+                listBoxAnimation.SelectedIndex--;
+            }
+        }
+
+        private void buttonDown_Click(object sender, EventArgs e)
+        {
+            int i = listBoxAnimation.SelectedIndex;
+            if (i != -1 && i < Animation.Count - 2)
+            {
+                Animation.Insert(i + 2, Animation.ElementAt(i));
+                Animation.RemoveAt(i);
+                listBoxAnimation.SelectedIndex++;
             }
         }
     }
