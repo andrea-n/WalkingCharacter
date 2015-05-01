@@ -63,17 +63,26 @@ namespace WalkingCharacter
                     {
                         i.PushPrompt("Couldn't find character's node in the scene");
                     }
+                    IINode bipedNode = i.GetINodeByName("Hips");
+                    if (bipedNode != null)
+                    {
+                        Character.BipedNode = bipedNode;
+                    }
+                    else
+                    {
+                        i.PushPrompt("Couldn't find character's skeleton in the scene");
+                    }
                 }
             }
         }
 
         private void buttonAddFur_Click(object sender, EventArgs e)
         {
-            FurDialog furdialog = new FurDialog();
-            if (furdialog.ShowDialog() == DialogResult.OK)
+            FurDialog addFurdialog = new FurDialog();
+            if (addFurdialog.ShowDialog() == DialogResult.OK)
             {
-                Animation.Add(furdialog.FurModifier);
-                Animation.ElementAt(0).Apply(Character);
+                Animation.Add(addFurdialog.FurModifier);
+                addFurdialog.FurModifier.Apply(Character);
             }
         }
 
@@ -82,6 +91,7 @@ namespace WalkingCharacter
             if (listBoxAnimation.SelectedIndex != -1)
             {
                 groupBoxEditAnimation.Enabled = true;
+                Animation.ElementAt(listBoxAnimation.SelectedIndex).Apply(Character);
             }
             else
             {
@@ -91,31 +101,61 @@ namespace WalkingCharacter
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            if (listBoxAnimation.SelectedIndex != -1)
+            /*if (listBoxAnimation.SelectedIndex != -1)
             {
                 Animation.RemoveAt(listBoxAnimation.SelectedIndex);
+            }*/
+            int frame = 0;
+            foreach (FurModifier fur in Animation)
+            {
+                frame += fur.Steps;
+                fur.AddKey(frame, Character);
             }
+            /*if (Character.BipedNode != null)
+            {
+                for (int i = 0; i <= 37; i++)
+                {
+                    Character.BipedNode.TMController.CopyKeysFromTime(i, i + 38, 3);
+                }
+            }*/
         }
 
         private void buttonUp_Click(object sender, EventArgs e)
         {
             int i = listBoxAnimation.SelectedIndex;
-            if (i != -1 && i > 1)
+            if (i != -1 && i > 0)
             {
-                Animation.Insert(i - 2, Animation.ElementAt(i));
+                Animation.Insert(i + 1, Animation.ElementAt(i - 1));
                 Animation.RemoveAt(i - 1);
-                listBoxAnimation.SelectedIndex--;
             }
         }
 
         private void buttonDown_Click(object sender, EventArgs e)
         {
             int i = listBoxAnimation.SelectedIndex;
-            if (i != -1 && i < Animation.Count - 2)
+            if (i != -1 && i < Animation.Count - 1)
             {
                 Animation.Insert(i + 2, Animation.ElementAt(i));
                 Animation.RemoveAt(i);
                 listBoxAnimation.SelectedIndex++;
+            }
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            int i = listBoxAnimation.SelectedIndex;
+            if (i != -1)
+            {
+                IModifier mod = Animation.ElementAt(i);
+                if (mod != null && mod is FurModifier)
+                {
+                    //FurDialog editFurdialog = new FurDialog((FurModifier)mod);
+                    MessageBox.Show(mod.ToString());
+                    /*if (editFurdialog.ShowDialog() == DialogResult.OK)
+                    {
+                        Animation[i] = editFurdialog.FurModifier;
+                    }*/
+                }
             }
         }
     }

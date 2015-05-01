@@ -31,17 +31,18 @@
             this.groupMerge = new System.Windows.Forms.GroupBox();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.groupAnimation = new System.Windows.Forms.GroupBox();
-            this.buttonUp = new System.Windows.Forms.Button();
-            this.buttonDown = new System.Windows.Forms.Button();
+            this.groupBoxEditAnimation = new System.Windows.Forms.GroupBox();
             this.buttonRemove = new System.Windows.Forms.Button();
+            this.buttonDown = new System.Windows.Forms.Button();
+            this.buttonUp = new System.Windows.Forms.Button();
             this.groupAnimationAdd = new System.Windows.Forms.GroupBox();
             this.buttonAddFur = new System.Windows.Forms.Button();
             this.listBoxAnimation = new System.Windows.Forms.ListBox();
-            this.groupBoxEditAnimation = new System.Windows.Forms.GroupBox();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.groupMerge.SuspendLayout();
             this.groupAnimation.SuspendLayout();
-            this.groupAnimationAdd.SuspendLayout();
             this.groupBoxEditAnimation.SuspendLayout();
+            this.groupAnimationAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupMerge
@@ -77,15 +78,28 @@
             this.groupAnimation.TabStop = false;
             this.groupAnimation.Text = "Animation";
             // 
-            // buttonUp
+            // groupBoxEditAnimation
             // 
-            this.buttonUp.Location = new System.Drawing.Point(17, 28);
-            this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(75, 23);
-            this.buttonUp.TabIndex = 3;
-            this.buttonUp.Text = "Move up";
-            this.buttonUp.UseVisualStyleBackColor = true;
-            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
+            this.groupBoxEditAnimation.Controls.Add(this.buttonEdit);
+            this.groupBoxEditAnimation.Controls.Add(this.buttonRemove);
+            this.groupBoxEditAnimation.Controls.Add(this.buttonDown);
+            this.groupBoxEditAnimation.Controls.Add(this.buttonUp);
+            this.groupBoxEditAnimation.Enabled = false;
+            this.groupBoxEditAnimation.Location = new System.Drawing.Point(246, 128);
+            this.groupBoxEditAnimation.Name = "groupBoxEditAnimation";
+            this.groupBoxEditAnimation.Size = new System.Drawing.Size(195, 98);
+            this.groupBoxEditAnimation.TabIndex = 6;
+            this.groupBoxEditAnimation.TabStop = false;
+            // 
+            // buttonRemove
+            // 
+            this.buttonRemove.Location = new System.Drawing.Point(98, 57);
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.Size = new System.Drawing.Size(75, 23);
+            this.buttonRemove.TabIndex = 5;
+            this.buttonRemove.Text = "Remove";
+            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // buttonDown
             // 
@@ -97,15 +111,15 @@
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
             // 
-            // buttonRemove
+            // buttonUp
             // 
-            this.buttonRemove.Location = new System.Drawing.Point(98, 28);
-            this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(75, 23);
-            this.buttonRemove.TabIndex = 5;
-            this.buttonRemove.Text = "Remove";
-            this.buttonRemove.UseVisualStyleBackColor = true;
-            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
+            this.buttonUp.Location = new System.Drawing.Point(17, 28);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.Size = new System.Drawing.Size(75, 23);
+            this.buttonUp.TabIndex = 3;
+            this.buttonUp.Text = "Move up";
+            this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
             // 
             // groupAnimationAdd
             // 
@@ -123,7 +137,7 @@
             this.buttonAddFur.Name = "buttonAddFur";
             this.buttonAddFur.Size = new System.Drawing.Size(75, 23);
             this.buttonAddFur.TabIndex = 2;
-            this.buttonAddFur.Text = "AddFur";
+            this.buttonAddFur.Text = "Add fur";
             this.buttonAddFur.UseVisualStyleBackColor = true;
             this.buttonAddFur.Click += new System.EventHandler(this.buttonAddFur_Click);
             // 
@@ -136,17 +150,15 @@
             this.listBoxAnimation.TabIndex = 0;
             this.listBoxAnimation.SelectedIndexChanged += new System.EventHandler(this.listBoxAnimation_SelectedIndexChanged);
             // 
-            // groupBoxEditAnimation
+            // buttonEdit
             // 
-            this.groupBoxEditAnimation.Controls.Add(this.buttonRemove);
-            this.groupBoxEditAnimation.Controls.Add(this.buttonDown);
-            this.groupBoxEditAnimation.Controls.Add(this.buttonUp);
-            this.groupBoxEditAnimation.Enabled = false;
-            this.groupBoxEditAnimation.Location = new System.Drawing.Point(246, 128);
-            this.groupBoxEditAnimation.Name = "groupBoxEditAnimation";
-            this.groupBoxEditAnimation.Size = new System.Drawing.Size(195, 98);
-            this.groupBoxEditAnimation.TabIndex = 6;
-            this.groupBoxEditAnimation.TabStop = false;
+            this.buttonEdit.Location = new System.Drawing.Point(98, 28);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
+            this.buttonEdit.TabIndex = 2;
+            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // UtilityForm
             // 
@@ -160,8 +172,8 @@
             this.Load += new System.EventHandler(this.UtilityForm_Load);
             this.groupMerge.ResumeLayout(false);
             this.groupAnimation.ResumeLayout(false);
-            this.groupAnimationAdd.ResumeLayout(false);
             this.groupBoxEditAnimation.ResumeLayout(false);
+            this.groupAnimationAdd.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +191,6 @@
         private System.Windows.Forms.Button buttonAddFur;
         private System.Windows.Forms.ListBox listBoxAnimation;
         private System.Windows.Forms.GroupBox groupBoxEditAnimation;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }

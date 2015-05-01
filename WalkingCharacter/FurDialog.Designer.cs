@@ -34,57 +34,57 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.groupParametersFur = new System.Windows.Forms.GroupBox();
-            this.numericCutLength = new System.Windows.Forms.NumericUpDown();
-            this.labelCutLength = new System.Windows.Forms.Label();
+            this.numericRootThick = new System.Windows.Forms.NumericUpDown();
+            this.labelRootThick = new System.Windows.Forms.Label();
+            this.numericRandomScale = new System.Windows.Forms.NumericUpDown();
+            this.labelRandomScale = new System.Windows.Forms.Label();
+            this.numericSegments = new System.Windows.Forms.NumericUpDown();
+            this.labelSegments = new System.Windows.Forms.Label();
+            this.numericScale = new System.Windows.Forms.NumericUpDown();
+            this.labelScale = new System.Windows.Forms.Label();
+            this.numericSteps = new System.Windows.Forms.NumericUpDown();
+            this.labelSteps = new System.Windows.Forms.Label();
             this.buttonTipColor = new System.Windows.Forms.Button();
             this.buttonRootColor = new System.Windows.Forms.Button();
             this.labelTipColor = new System.Windows.Forms.Label();
             this.labelRootColor = new System.Windows.Forms.Label();
-            this.numericSteps = new System.Windows.Forms.NumericUpDown();
-            this.labelSteps = new System.Windows.Forms.Label();
             this.groupMaterial = new System.Windows.Forms.GroupBox();
-            this.buttonMutantColor = new System.Windows.Forms.Button();
-            this.labelMutantColor = new System.Windows.Forms.Label();
-            this.numericSegments = new System.Windows.Forms.NumericUpDown();
-            this.labelSegments = new System.Windows.Forms.Label();
-            this.numericRandomScale = new System.Windows.Forms.NumericUpDown();
-            this.labelRandomScale = new System.Windows.Forms.Label();
-            this.numericRootThick = new System.Windows.Forms.NumericUpDown();
-            this.labelRootThick = new System.Windows.Forms.Label();
-            this.numericSpecular = new System.Windows.Forms.NumericUpDown();
-            this.labelSpecular = new System.Windows.Forms.Label();
-            this.numericMutant = new System.Windows.Forms.NumericUpDown();
-            this.labelMutant = new System.Windows.Forms.Label();
             this.numericGlossiness = new System.Windows.Forms.NumericUpDown();
+            this.buttonMutantColor = new System.Windows.Forms.Button();
+            this.numericValueVariation = new System.Windows.Forms.NumericUpDown();
+            this.labelMutantColor = new System.Windows.Forms.Label();
             this.labelGlossiness = new System.Windows.Forms.Label();
+            this.numericSpecular = new System.Windows.Forms.NumericUpDown();
+            this.labelValueVariation = new System.Windows.Forms.Label();
+            this.labelHueVariation = new System.Windows.Forms.Label();
+            this.labelSpecular = new System.Windows.Forms.Label();
+            this.labelMutant = new System.Windows.Forms.Label();
+            this.numericHueVariation = new System.Windows.Forms.NumericUpDown();
+            this.numericMutant = new System.Windows.Forms.NumericUpDown();
             this.groupEffects = new System.Windows.Forms.GroupBox();
             this.numericKink = new System.Windows.Forms.NumericUpDown();
+            this.numericFlyAway = new System.Windows.Forms.NumericUpDown();
             this.labelKink = new System.Windows.Forms.Label();
+            this.labelFlyAway = new System.Windows.Forms.Label();
             this.numericClump = new System.Windows.Forms.NumericUpDown();
             this.labelClump = new System.Windows.Forms.Label();
-            this.numericFlyAway = new System.Windows.Forms.NumericUpDown();
-            this.labelFlyAway = new System.Windows.Forms.Label();
-            this.numericValueVariation = new System.Windows.Forms.NumericUpDown();
-            this.labelValueVariation = new System.Windows.Forms.Label();
-            this.numericHueVariation = new System.Windows.Forms.NumericUpDown();
-            this.labelHueVariation = new System.Windows.Forms.Label();
             this.groupAddFur.SuspendLayout();
             this.groupParametersFur.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericCutLength)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericRootThick)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericRandomScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSegments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSteps)).BeginInit();
             this.groupMaterial.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSegments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRandomScale)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRootThick)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSpecular)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMutant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericGlossiness)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericValueVariation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSpecular)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHueVariation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMutant)).BeginInit();
             this.groupEffects.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericKink)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericClump)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericFlyAway)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericValueVariation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericHueVariation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericClump)).BeginInit();
             this.SuspendLayout();
             // 
             // groupAddFur
@@ -98,7 +98,7 @@
             this.groupAddFur.Size = new System.Drawing.Size(209, 88);
             this.groupAddFur.TabIndex = 0;
             this.groupAddFur.TabStop = false;
-            this.groupAddFur.Text = "Add to list";
+            this.groupAddFur.Text = "Add to animation";
             // 
             // buttonCancel
             // 
@@ -146,8 +146,8 @@
             this.groupParametersFur.Controls.Add(this.labelRandomScale);
             this.groupParametersFur.Controls.Add(this.numericSegments);
             this.groupParametersFur.Controls.Add(this.labelSegments);
-            this.groupParametersFur.Controls.Add(this.numericCutLength);
-            this.groupParametersFur.Controls.Add(this.labelCutLength);
+            this.groupParametersFur.Controls.Add(this.numericScale);
+            this.groupParametersFur.Controls.Add(this.labelScale);
             this.groupParametersFur.Controls.Add(this.numericSteps);
             this.groupParametersFur.Controls.Add(this.labelSteps);
             this.groupParametersFur.Location = new System.Drawing.Point(12, 12);
@@ -157,26 +157,110 @@
             this.groupParametersFur.TabStop = false;
             this.groupParametersFur.Text = "Parameters";
             // 
-            // numericCutLength
+            // numericRootThick
             // 
-            this.numericCutLength.Location = new System.Drawing.Point(122, 50);
-            this.numericCutLength.Name = "numericCutLength";
-            this.numericCutLength.Size = new System.Drawing.Size(96, 20);
-            this.numericCutLength.TabIndex = 7;
-            this.numericCutLength.Value = new decimal(new int[] {
+            this.numericRootThick.Location = new System.Drawing.Point(122, 131);
+            this.numericRootThick.Name = "numericRootThick";
+            this.numericRootThick.Size = new System.Drawing.Size(96, 20);
+            this.numericRootThick.TabIndex = 9;
+            this.numericRootThick.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // labelRootThick
+            // 
+            this.labelRootThick.AutoSize = true;
+            this.labelRootThick.Location = new System.Drawing.Point(19, 133);
+            this.labelRootThick.Name = "labelRootThick";
+            this.labelRootThick.Size = new System.Drawing.Size(81, 13);
+            this.labelRootThick.TabIndex = 8;
+            this.labelRootThick.Text = "Root thickness:";
+            // 
+            // numericRandomScale
+            // 
+            this.numericRandomScale.Location = new System.Drawing.Point(122, 105);
+            this.numericRandomScale.Name = "numericRandomScale";
+            this.numericRandomScale.Size = new System.Drawing.Size(96, 20);
+            this.numericRandomScale.TabIndex = 11;
+            this.numericRandomScale.Value = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            // 
+            // labelRandomScale
+            // 
+            this.labelRandomScale.AutoSize = true;
+            this.labelRandomScale.Location = new System.Drawing.Point(19, 107);
+            this.labelRandomScale.Name = "labelRandomScale";
+            this.labelRandomScale.Size = new System.Drawing.Size(78, 13);
+            this.labelRandomScale.TabIndex = 10;
+            this.labelRandomScale.Text = "Random scale:";
+            // 
+            // numericSegments
+            // 
+            this.numericSegments.Location = new System.Drawing.Point(122, 77);
+            this.numericSegments.Name = "numericSegments";
+            this.numericSegments.Size = new System.Drawing.Size(96, 20);
+            this.numericSegments.TabIndex = 9;
+            this.numericSegments.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // labelSegments
+            // 
+            this.labelSegments.AutoSize = true;
+            this.labelSegments.Location = new System.Drawing.Point(19, 79);
+            this.labelSegments.Name = "labelSegments";
+            this.labelSegments.Size = new System.Drawing.Size(57, 13);
+            this.labelSegments.TabIndex = 8;
+            this.labelSegments.Text = "Segments:";
+            // 
+            // numericScale
+            // 
+            this.numericScale.Location = new System.Drawing.Point(122, 50);
+            this.numericScale.Name = "numericScale";
+            this.numericScale.Size = new System.Drawing.Size(96, 20);
+            this.numericScale.TabIndex = 7;
+            this.numericScale.Value = new decimal(new int[] {
             100,
             0,
             0,
             0});
             // 
-            // labelCutLength
+            // labelScale
             // 
-            this.labelCutLength.AutoSize = true;
-            this.labelCutLength.Location = new System.Drawing.Point(19, 52);
-            this.labelCutLength.Name = "labelCutLength";
-            this.labelCutLength.Size = new System.Drawing.Size(58, 13);
-            this.labelCutLength.TabIndex = 6;
-            this.labelCutLength.Text = "Cut length:";
+            this.labelScale.AutoSize = true;
+            this.labelScale.Location = new System.Drawing.Point(19, 52);
+            this.labelScale.Name = "labelScale";
+            this.labelScale.Size = new System.Drawing.Size(37, 13);
+            this.labelScale.TabIndex = 6;
+            this.labelScale.Text = "Scale:";
+            // 
+            // numericSteps
+            // 
+            this.numericSteps.Location = new System.Drawing.Point(122, 24);
+            this.numericSteps.Name = "numericSteps";
+            this.numericSteps.Size = new System.Drawing.Size(96, 20);
+            this.numericSteps.TabIndex = 1;
+            this.numericSteps.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // labelSteps
+            // 
+            this.labelSteps.AutoSize = true;
+            this.labelSteps.Location = new System.Drawing.Point(19, 26);
+            this.labelSteps.Name = "labelSteps";
+            this.labelSteps.Size = new System.Drawing.Size(84, 13);
+            this.labelSteps.TabIndex = 0;
+            this.labelSteps.Text = "Character steps:";
             // 
             // buttonTipColor
             // 
@@ -216,27 +300,6 @@
             this.labelRootColor.TabIndex = 2;
             this.labelRootColor.Text = "Root color:";
             // 
-            // numericSteps
-            // 
-            this.numericSteps.Location = new System.Drawing.Point(122, 24);
-            this.numericSteps.Name = "numericSteps";
-            this.numericSteps.Size = new System.Drawing.Size(96, 20);
-            this.numericSteps.TabIndex = 1;
-            this.numericSteps.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // labelSteps
-            // 
-            this.labelSteps.AutoSize = true;
-            this.labelSteps.Location = new System.Drawing.Point(19, 26);
-            this.labelSteps.Name = "labelSteps";
-            this.labelSteps.Size = new System.Drawing.Size(84, 13);
-            this.labelSteps.TabIndex = 0;
-            this.labelSteps.Text = "Character steps:";
-            // 
             // groupMaterial
             // 
             this.groupMaterial.Controls.Add(this.numericGlossiness);
@@ -262,6 +325,18 @@
             this.groupMaterial.TabStop = false;
             this.groupMaterial.Text = "Material";
             // 
+            // numericGlossiness
+            // 
+            this.numericGlossiness.Location = new System.Drawing.Point(107, 202);
+            this.numericGlossiness.Name = "numericGlossiness";
+            this.numericGlossiness.Size = new System.Drawing.Size(87, 20);
+            this.numericGlossiness.TabIndex = 17;
+            this.numericGlossiness.Value = new decimal(new int[] {
+            85,
+            0,
+            0,
+            0});
+            // 
             // buttonMutantColor
             // 
             this.buttonMutantColor.BackColor = System.Drawing.Color.White;
@@ -272,6 +347,18 @@
             this.buttonMutantColor.UseVisualStyleBackColor = false;
             this.buttonMutantColor.Click += new System.EventHandler(this.buttonMutantColor_Click);
             // 
+            // numericValueVariation
+            // 
+            this.numericValueVariation.Location = new System.Drawing.Point(107, 124);
+            this.numericValueVariation.Name = "numericValueVariation";
+            this.numericValueVariation.Size = new System.Drawing.Size(87, 20);
+            this.numericValueVariation.TabIndex = 21;
+            this.numericValueVariation.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
             // labelMutantColor
             // 
             this.labelMutantColor.AutoSize = true;
@@ -281,68 +368,14 @@
             this.labelMutantColor.TabIndex = 6;
             this.labelMutantColor.Text = "Mutant color:";
             // 
-            // numericSegments
+            // labelGlossiness
             // 
-            this.numericSegments.Location = new System.Drawing.Point(122, 77);
-            this.numericSegments.Name = "numericSegments";
-            this.numericSegments.Size = new System.Drawing.Size(96, 20);
-            this.numericSegments.TabIndex = 9;
-            this.numericSegments.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // labelSegments
-            // 
-            this.labelSegments.AutoSize = true;
-            this.labelSegments.Location = new System.Drawing.Point(19, 79);
-            this.labelSegments.Name = "labelSegments";
-            this.labelSegments.Size = new System.Drawing.Size(57, 13);
-            this.labelSegments.TabIndex = 8;
-            this.labelSegments.Text = "Segments:";
-            // 
-            // numericRandomScale
-            // 
-            this.numericRandomScale.Location = new System.Drawing.Point(122, 105);
-            this.numericRandomScale.Name = "numericRandomScale";
-            this.numericRandomScale.Size = new System.Drawing.Size(96, 20);
-            this.numericRandomScale.TabIndex = 11;
-            this.numericRandomScale.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            // 
-            // labelRandomScale
-            // 
-            this.labelRandomScale.AutoSize = true;
-            this.labelRandomScale.Location = new System.Drawing.Point(19, 107);
-            this.labelRandomScale.Name = "labelRandomScale";
-            this.labelRandomScale.Size = new System.Drawing.Size(78, 13);
-            this.labelRandomScale.TabIndex = 10;
-            this.labelRandomScale.Text = "Random scale:";
-            // 
-            // numericRootThick
-            // 
-            this.numericRootThick.Location = new System.Drawing.Point(122, 131);
-            this.numericRootThick.Name = "numericRootThick";
-            this.numericRootThick.Size = new System.Drawing.Size(96, 20);
-            this.numericRootThick.TabIndex = 9;
-            this.numericRootThick.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
-            // labelRootThick
-            // 
-            this.labelRootThick.AutoSize = true;
-            this.labelRootThick.Location = new System.Drawing.Point(19, 133);
-            this.labelRootThick.Name = "labelRootThick";
-            this.labelRootThick.Size = new System.Drawing.Size(81, 13);
-            this.labelRootThick.TabIndex = 8;
-            this.labelRootThick.Text = "Root thickness:";
+            this.labelGlossiness.AutoSize = true;
+            this.labelGlossiness.Location = new System.Drawing.Point(16, 204);
+            this.labelGlossiness.Name = "labelGlossiness";
+            this.labelGlossiness.Size = new System.Drawing.Size(60, 13);
+            this.labelGlossiness.TabIndex = 16;
+            this.labelGlossiness.Text = "Glossiness:";
             // 
             // numericSpecular
             // 
@@ -351,10 +384,28 @@
             this.numericSpecular.Size = new System.Drawing.Size(87, 20);
             this.numericSpecular.TabIndex = 15;
             this.numericSpecular.Value = new decimal(new int[] {
-            70,
+            75,
             0,
             0,
             0});
+            // 
+            // labelValueVariation
+            // 
+            this.labelValueVariation.AutoSize = true;
+            this.labelValueVariation.Location = new System.Drawing.Point(16, 126);
+            this.labelValueVariation.Name = "labelValueVariation";
+            this.labelValueVariation.Size = new System.Drawing.Size(80, 13);
+            this.labelValueVariation.TabIndex = 20;
+            this.labelValueVariation.Text = "Value variation:";
+            // 
+            // labelHueVariation
+            // 
+            this.labelHueVariation.AutoSize = true;
+            this.labelHueVariation.Location = new System.Drawing.Point(15, 100);
+            this.labelHueVariation.Name = "labelHueVariation";
+            this.labelHueVariation.Size = new System.Drawing.Size(70, 13);
+            this.labelHueVariation.TabIndex = 18;
+            this.labelHueVariation.Text = "Hue variation";
             // 
             // labelSpecular
             // 
@@ -365,13 +416,6 @@
             this.labelSpecular.TabIndex = 14;
             this.labelSpecular.Text = "Specular:";
             // 
-            // numericMutant
-            // 
-            this.numericMutant.Location = new System.Drawing.Point(107, 150);
-            this.numericMutant.Name = "numericMutant";
-            this.numericMutant.Size = new System.Drawing.Size(87, 20);
-            this.numericMutant.TabIndex = 13;
-            // 
             // labelMutant
             // 
             this.labelMutant.AutoSize = true;
@@ -381,26 +425,24 @@
             this.labelMutant.TabIndex = 12;
             this.labelMutant.Text = "Mutant:";
             // 
-            // numericGlossiness
+            // numericHueVariation
             // 
-            this.numericGlossiness.Location = new System.Drawing.Point(107, 202);
-            this.numericGlossiness.Name = "numericGlossiness";
-            this.numericGlossiness.Size = new System.Drawing.Size(87, 20);
-            this.numericGlossiness.TabIndex = 17;
-            this.numericGlossiness.Value = new decimal(new int[] {
-            50,
+            this.numericHueVariation.Location = new System.Drawing.Point(107, 98);
+            this.numericHueVariation.Name = "numericHueVariation";
+            this.numericHueVariation.Size = new System.Drawing.Size(87, 20);
+            this.numericHueVariation.TabIndex = 19;
+            this.numericHueVariation.Value = new decimal(new int[] {
+            10,
             0,
             0,
             0});
             // 
-            // labelGlossiness
+            // numericMutant
             // 
-            this.labelGlossiness.AutoSize = true;
-            this.labelGlossiness.Location = new System.Drawing.Point(16, 204);
-            this.labelGlossiness.Name = "labelGlossiness";
-            this.labelGlossiness.Size = new System.Drawing.Size(60, 13);
-            this.labelGlossiness.TabIndex = 16;
-            this.labelGlossiness.Text = "Glossiness:";
+            this.numericMutant.Location = new System.Drawing.Point(107, 150);
+            this.numericMutant.Name = "numericMutant";
+            this.numericMutant.Size = new System.Drawing.Size(87, 20);
+            this.numericMutant.TabIndex = 13;
             // 
             // groupEffects
             // 
@@ -423,6 +465,13 @@
             this.numericKink.Size = new System.Drawing.Size(96, 20);
             this.numericKink.TabIndex = 14;
             // 
+            // numericFlyAway
+            // 
+            this.numericFlyAway.Location = new System.Drawing.Point(122, 19);
+            this.numericFlyAway.Name = "numericFlyAway";
+            this.numericFlyAway.Size = new System.Drawing.Size(96, 20);
+            this.numericFlyAway.TabIndex = 15;
+            // 
             // labelKink
             // 
             this.labelKink.AutoSize = true;
@@ -431,6 +480,15 @@
             this.labelKink.Size = new System.Drawing.Size(31, 13);
             this.labelKink.TabIndex = 12;
             this.labelKink.Text = "Kink:";
+            // 
+            // labelFlyAway
+            // 
+            this.labelFlyAway.AutoSize = true;
+            this.labelFlyAway.Location = new System.Drawing.Point(19, 21);
+            this.labelFlyAway.Name = "labelFlyAway";
+            this.labelFlyAway.Size = new System.Drawing.Size(49, 13);
+            this.labelFlyAway.TabIndex = 13;
+            this.labelFlyAway.Text = "FlyAway:";
             // 
             // numericClump
             // 
@@ -448,64 +506,6 @@
             this.labelClump.TabIndex = 16;
             this.labelClump.Text = "Clump:";
             // 
-            // numericFlyAway
-            // 
-            this.numericFlyAway.Location = new System.Drawing.Point(122, 19);
-            this.numericFlyAway.Name = "numericFlyAway";
-            this.numericFlyAway.Size = new System.Drawing.Size(96, 20);
-            this.numericFlyAway.TabIndex = 15;
-            // 
-            // labelFlyAway
-            // 
-            this.labelFlyAway.AutoSize = true;
-            this.labelFlyAway.Location = new System.Drawing.Point(19, 21);
-            this.labelFlyAway.Name = "labelFlyAway";
-            this.labelFlyAway.Size = new System.Drawing.Size(49, 13);
-            this.labelFlyAway.TabIndex = 13;
-            this.labelFlyAway.Text = "FlyAway:";
-            // 
-            // numericValueVariation
-            // 
-            this.numericValueVariation.Location = new System.Drawing.Point(107, 124);
-            this.numericValueVariation.Name = "numericValueVariation";
-            this.numericValueVariation.Size = new System.Drawing.Size(87, 20);
-            this.numericValueVariation.TabIndex = 21;
-            this.numericValueVariation.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
-            // labelValueVariation
-            // 
-            this.labelValueVariation.AutoSize = true;
-            this.labelValueVariation.Location = new System.Drawing.Point(16, 126);
-            this.labelValueVariation.Name = "labelValueVariation";
-            this.labelValueVariation.Size = new System.Drawing.Size(80, 13);
-            this.labelValueVariation.TabIndex = 20;
-            this.labelValueVariation.Text = "Value variation:";
-            // 
-            // numericHueVariation
-            // 
-            this.numericHueVariation.Location = new System.Drawing.Point(107, 98);
-            this.numericHueVariation.Name = "numericHueVariation";
-            this.numericHueVariation.Size = new System.Drawing.Size(87, 20);
-            this.numericHueVariation.TabIndex = 19;
-            this.numericHueVariation.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // labelHueVariation
-            // 
-            this.labelHueVariation.AutoSize = true;
-            this.labelHueVariation.Location = new System.Drawing.Point(15, 100);
-            this.labelHueVariation.Name = "labelHueVariation";
-            this.labelHueVariation.Size = new System.Drawing.Size(70, 13);
-            this.labelHueVariation.TabIndex = 18;
-            this.labelHueVariation.Text = "Hue variation";
-            // 
             // FurDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,23 +521,23 @@
             this.groupAddFur.PerformLayout();
             this.groupParametersFur.ResumeLayout(false);
             this.groupParametersFur.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericCutLength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericRootThick)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericRandomScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSegments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericScale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSteps)).EndInit();
             this.groupMaterial.ResumeLayout(false);
             this.groupMaterial.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSegments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRandomScale)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRootThick)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSpecular)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMutant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericGlossiness)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericValueVariation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSpecular)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHueVariation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMutant)).EndInit();
             this.groupEffects.ResumeLayout(false);
             this.groupEffects.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericKink)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericClump)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericFlyAway)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericValueVariation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericHueVariation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericClump)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -555,8 +555,8 @@
         private System.Windows.Forms.Label labelRootColor;
         private System.Windows.Forms.NumericUpDown numericSteps;
         private System.Windows.Forms.Label labelSteps;
-        private System.Windows.Forms.NumericUpDown numericCutLength;
-        private System.Windows.Forms.Label labelCutLength;
+        private System.Windows.Forms.NumericUpDown numericScale;
+        private System.Windows.Forms.Label labelScale;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.GroupBox groupMaterial;
         private System.Windows.Forms.Button buttonMutantColor;

@@ -18,5 +18,8 @@ namespace WalkingCharacter
 
         // In this method a modifier/shader should be applied on character
         void Apply(Character character);
+
+        // Adds key to timeline with new settings of modifier
+        void AddKey(int frame, Character character);
     }
 }

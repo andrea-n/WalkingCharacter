@@ -21,8 +21,8 @@ namespace WalkingCharacter
         public Color TipColor { get; set; }
         public Color MutantColor { get; set; }
 
-        // Cut length of fur, values 0 - 100
-        public int CutLength { get; set; }
+
+        public int Scale { get; set; }
         public int Segments { get; set; }
         public int RandomScale { get; set; }
         public int RootThick { get; set; }
@@ -46,7 +46,7 @@ namespace WalkingCharacter
             TipColor = tipColor;
             MutantColor = mutantColor;
 
-            CutLength = cutLength;
+            Scale = cutLength;
             Segments = segments;
             RandomScale = randomScale;
             RootThick = rootThick;
@@ -69,30 +69,67 @@ namespace WalkingCharacter
             if (character != null)
             {
                 string charName = character.Name;
-                
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].MaterialRootColor = color " + RootColor.R + " " + RootColor.G + " " + RootColor.B, false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].MaterialTipColor = color " + TipColor.R + " " + TipColor.G + " " + TipColor.B, false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].MaterialMutantHairColor = color " + MutantColor.R + " " + MutantColor.G + " " + MutantColor.B, false, null);
+                string modifier = ".modifiers[#Hair_and_Fur]";
 
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].HairCutLength = " + CutLength, false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].HairSegments = " + Segments, false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].HairScale = " + RandomScale, false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].HairRootThickness = " + RootThick, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialRootColor = color " + RootColor.R + " " + RootColor.G + " " + RootColor.B, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialTipColor = color " + TipColor.R + " " + TipColor.G + " " + TipColor.B, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialMutantHairColor = color " + MutantColor.R + " " + MutantColor.G + " " + MutantColor.B, false, null);
 
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].MaterialHueVariation = " + HueVariation, false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].MaterialValueVariation = " + ValueVariation, false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].MaterialPercentMutantHair = " + Mutant, false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].MaterialSpecular = " + Specular, false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].MaterialGlossness = " + Glossiness, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".HairScale = " + Scale, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".HairSegments = " + Segments, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".HairRandScale = " + RandomScale, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".HairRootThickness = " + RootThick, false, null);
 
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].FlyawayStren = " + FlyAway, false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].Clumps = " + Clump, false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].KinkTip = " + Kink, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialHueVariation = " + HueVariation, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialValueVariation = " + ValueVariation, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialPercentMutantHair = " + Mutant, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialSpecular = " + Specular, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialGlossness = " + Glossiness, false, null);
 
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].FlyawayPerc = 100", false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].ClumpsStren = 1", false, null);
-                global.ExecuteMAXScriptScript("$" + charName + ".modifiers[#Hair_and_Fur].KinkRoot = " + Kink/100, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".FlyawayStren = " + FlyAway, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".Clumps = " + Clump, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".KinkTip = " + Kink, false, null);
 
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".FlyawayPerc = 100", false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".ClumpsStren = 1", false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".KinkRoot = " + Kink / 100, false, null);
+
+            }
+            else
+            {
+                MessageBox.Show("Can't find 'WalkingCharacterBody'");
+            }
+        }
+
+        public void AddKey(int frame, Character character)
+        {
+            if (character != null)
+            {
+                string charName = character.Name;
+                string modifier = ".modifiers[#Hair_and_Fur]";
+
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialRootColor.controller " + frame + ").value = [" + RootColor.R + ", " + RootColor.G + ", " + RootColor.B + "]", false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialTipColor.controller " + frame + ").value = [" + TipColor.R + ", " + TipColor.G + ", " + TipColor.B + "]", false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialMutantHairColor.controller " + frame + ").value = [" + MutantColor.R + ", " + MutantColor.G + ", " + MutantColor.B + "]", false, null);
+
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".HairScale.controller " + frame + ").value = " + Scale, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".HairSegments.controller " + frame + ").value = " + Segments, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".HairRandScale.controller " + frame + ").value = " + RandomScale, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".HairRootThickness.controller " + frame + ").value = " + RootThick, false, null);
+
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialHueVariation.controller " + frame + ").value = " + HueVariation, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialValueVariation.controller " + frame + ").value = " + ValueVariation, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialPercentMutantHair.controller " + frame + ").value = " + Mutant, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialSpecular.controller " + frame + ").value = " + Specular, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialGlossness.controller " + frame + ").value = " + Glossiness, false, null);
+
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".FlyawayStren.controller " + frame + ").value = " + FlyAway, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".Clumps.controller " + frame + ").value = " + Clump, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".KinkTip.controller " + frame + ").value = " + Kink, false, null);
+
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".FlyawayPerc.controller " + frame + ").value = 100", false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".ClumpsStren.controller " + frame + ").value = 1" + Scale, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".KinkRoot.controller " + frame + ").value = " + Kink/100, false, null);
             }
             else
             {

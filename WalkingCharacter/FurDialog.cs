@@ -19,9 +19,32 @@ namespace WalkingCharacter
             InitializeComponent();
         }
 
+        public FurDialog(FurModifier modifier)
+        {
+            FurModifier = modifier;
+            numericSteps.Value = FurModifier.Steps;
+            numericScale.Value = FurModifier.Scale;
+            numericSegments.Value = FurModifier.Segments;
+            numericRandomScale.Value = FurModifier.RandomScale;
+            numericRootThick.Value = FurModifier.RootThick;
+            numericFlyAway.Value = FurModifier.FlyAway;
+            numericClump.Value = FurModifier.Clump;
+            numericKink.Value = FurModifier.Kink;
+            buttonRootColor.BackColor = FurModifier.RootColor;
+            buttonTipColor.BackColor = FurModifier.TipColor;
+            buttonMutantColor.BackColor = FurModifier.MutantColor;
+            numericHueVariation.Value = FurModifier.HueVariation;
+            numericValueVariation.Value = FurModifier.ValueVariation;
+            numericMutant.Value = FurModifier.Mutant;
+            numericSpecular.Value = FurModifier.Specular;
+            numericGlossiness.Value = FurModifier.Glossiness;
+            textBoxName.Name = FurModifier.Name;
+            buttonAdd.Text = "Edit";
+        }
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            FurModifier = new FurModifier(textBoxName.Text, (int)numericSteps.Value, buttonRootColor.BackColor, buttonTipColor.BackColor, buttonMutantColor.BackColor, (int)numericCutLength.Value, (int)numericSegments.Value, (int)numericRandomScale.Value, (int)numericRootThick.Value, (int)numericHueVariation.Value, (int)numericValueVariation.Value, (int)numericMutant.Value, (int)numericSpecular.Value, (int)numericGlossiness.Value, (int)numericFlyAway.Value, (int)numericClump.Value, (int)numericKink.Value);
+            FurModifier = new FurModifier(textBoxName.Text, (int)numericSteps.Value, buttonRootColor.BackColor, buttonTipColor.BackColor, buttonMutantColor.BackColor, (int)numericScale.Value, (int)numericSegments.Value, (int)numericRandomScale.Value, (int)numericRootThick.Value, (int)numericHueVariation.Value, (int)numericValueVariation.Value, (int)numericMutant.Value, (int)numericSpecular.Value, (int)numericGlossiness.Value, (int)numericFlyAway.Value, (int)numericClump.Value, (int)numericKink.Value);
         }
 
         private void buttonRootColor_Click(object sender, EventArgs e)

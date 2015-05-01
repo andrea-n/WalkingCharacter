@@ -12,6 +12,7 @@ namespace WalkingCharacter
     {
         public String Name { get; set; }
         public IINode Node { get; set; }
+        public IINode BipedNode { get; set; }
 
         public Character(String name)
         {
