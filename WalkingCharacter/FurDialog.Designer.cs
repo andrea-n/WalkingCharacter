@@ -244,11 +244,16 @@
             // numericSteps
             // 
             this.numericSteps.Location = new System.Drawing.Point(122, 24);
+            this.numericSteps.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericSteps.Name = "numericSteps";
             this.numericSteps.Size = new System.Drawing.Size(96, 20);
             this.numericSteps.TabIndex = 1;
             this.numericSteps.Value = new decimal(new int[] {
-            5,
+            2,
             0,
             0,
             0});

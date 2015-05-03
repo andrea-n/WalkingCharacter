@@ -32,25 +32,30 @@
             this.buttonCreate = new System.Windows.Forms.Button();
             this.groupAnimation = new System.Windows.Forms.GroupBox();
             this.groupBoxEditAnimation = new System.Windows.Forms.GroupBox();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.groupAnimationAdd = new System.Windows.Forms.GroupBox();
             this.buttonAddFur = new System.Windows.Forms.Button();
             this.listBoxAnimation = new System.Windows.Forms.ListBox();
-            this.buttonEdit = new System.Windows.Forms.Button();
+            this.groupCreateAnimation = new System.Windows.Forms.GroupBox();
+            this.buttonCreateKeys = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.groupMerge.SuspendLayout();
             this.groupAnimation.SuspendLayout();
             this.groupBoxEditAnimation.SuspendLayout();
             this.groupAnimationAdd.SuspendLayout();
+            this.groupCreateAnimation.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupMerge
             // 
+            this.groupMerge.Controls.Add(this.buttonReset);
             this.groupMerge.Controls.Add(this.buttonCreate);
             this.groupMerge.Location = new System.Drawing.Point(12, 12);
             this.groupMerge.Name = "groupMerge";
-            this.groupMerge.Size = new System.Drawing.Size(230, 62);
+            this.groupMerge.Size = new System.Drawing.Size(461, 62);
             this.groupMerge.TabIndex = 0;
             this.groupMerge.TabStop = false;
             this.groupMerge.Text = "Merge character to the scene";
@@ -90,6 +95,16 @@
             this.groupBoxEditAnimation.Size = new System.Drawing.Size(195, 98);
             this.groupBoxEditAnimation.TabIndex = 6;
             this.groupBoxEditAnimation.TabStop = false;
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Location = new System.Drawing.Point(98, 28);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
+            this.buttonEdit.TabIndex = 2;
+            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonRemove
             // 
@@ -150,21 +165,41 @@
             this.listBoxAnimation.TabIndex = 0;
             this.listBoxAnimation.SelectedIndexChanged += new System.EventHandler(this.listBoxAnimation_SelectedIndexChanged);
             // 
-            // buttonEdit
+            // groupCreateAnimation
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(98, 28);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
-            this.buttonEdit.TabIndex = 2;
-            this.buttonEdit.Text = "Edit";
-            this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.groupCreateAnimation.Controls.Add(this.buttonCreateKeys);
+            this.groupCreateAnimation.Location = new System.Drawing.Point(12, 333);
+            this.groupCreateAnimation.Name = "groupCreateAnimation";
+            this.groupCreateAnimation.Size = new System.Drawing.Size(461, 66);
+            this.groupCreateAnimation.TabIndex = 2;
+            this.groupCreateAnimation.TabStop = false;
+            this.groupCreateAnimation.Text = "Create animation keys";
+            // 
+            // buttonCreateKeys
+            // 
+            this.buttonCreateKeys.Location = new System.Drawing.Point(46, 24);
+            this.buttonCreateKeys.Name = "buttonCreateKeys";
+            this.buttonCreateKeys.Size = new System.Drawing.Size(114, 23);
+            this.buttonCreateKeys.TabIndex = 0;
+            this.buttonCreateKeys.Text = "Create animation";
+            this.buttonCreateKeys.UseVisualStyleBackColor = true;
+            this.buttonCreateKeys.Click += new System.EventHandler(this.buttonCreateKeys_Click);
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(155, 22);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(75, 23);
+            this.buttonReset.TabIndex = 1;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
             // 
             // UtilityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 337);
+            this.ClientSize = new System.Drawing.Size(485, 410);
+            this.Controls.Add(this.groupCreateAnimation);
             this.Controls.Add(this.groupAnimation);
             this.Controls.Add(this.groupMerge);
             this.Name = "UtilityForm";
@@ -174,6 +209,7 @@
             this.groupAnimation.ResumeLayout(false);
             this.groupBoxEditAnimation.ResumeLayout(false);
             this.groupAnimationAdd.ResumeLayout(false);
+            this.groupCreateAnimation.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +228,8 @@
         private System.Windows.Forms.ListBox listBoxAnimation;
         private System.Windows.Forms.GroupBox groupBoxEditAnimation;
         private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.GroupBox groupCreateAnimation;
+        private System.Windows.Forms.Button buttonCreateKeys;
+        private System.Windows.Forms.Button buttonReset;
     }
 }

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 using Autodesk.Max;
 using MaxCustomControls;
+using System.IO;
+using System.Reflection;
 
 namespace WalkingCharacter
 {
@@ -17,13 +19,13 @@ namespace WalkingCharacter
     {
         public Character Character { get; private set; }
         public BindingList<IModifier> Animation { get; set; }
-        IGlobal global;
+        Autodesk.Max.IGlobal global;
 
         public UtilityForm(IGlobal global)
         {
             InitializeComponent();
             this.global = global;
-            Character = new Character("WalkingCharacterBody");
+            Character = new Character("WalkingCharacterBody", "WalkingCharacterBip", 38);
             Animation = new BindingList<IModifier>();
             listBoxAnimation.DataSource = Animation;
             listBoxAnimation.DisplayMember = "Name";
@@ -39,16 +41,31 @@ namespace WalkingCharacter
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             IInterface13 i = global.COREInterface14;
-            OpenFileDialog dialog = new OpenFileDialog();
+
+            string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            string filePath = Path.Combine(currentDirectory, "bin\\assemblies\\src\\Scene.max");
+            FileInfo fileInfo = new FileInfo(filePath);
+
+            OpenFileDialog openDialog;
             string file = null;
-            if (dialog.ShowDialog() == DialogResult.OK)
+
+            if (fileInfo.Exists)
             {
-                file = dialog.FileName;
-                i.PushPrompt(dialog.FileName);
+                file = fileInfo.FullName;
             }
+            else
+            {
+                MessageBox.Show("File src/Scene.max wasn't found. Please select the path.");
+                openDialog = new OpenFileDialog();
+                if (openDialog.ShowDialog() == DialogResult.OK)
+                {
+                    file = openDialog.FileName;
+                }
+            }
+
             if (file != null)
             {
-                if (i.MergeFromFile(dialog.FileName, true, true, true, 3, null, 3, 2) == 0)
+                if (i.MergeFromFile(file, true, true, true, 3, null, 3, 2) == 0)
                 {
                     i.PushPrompt("Nothing merged");
                 }
@@ -63,7 +80,7 @@ namespace WalkingCharacter
                     {
                         i.PushPrompt("Couldn't find character's node in the scene");
                     }
-                    IINode bipedNode = i.GetINodeByName("Hips");
+                    IINode bipedNode = i.GetINodeByName(Character.BipedName);
                     if (bipedNode != null)
                     {
                         Character.BipedNode = bipedNode;
@@ -101,23 +118,11 @@ namespace WalkingCharacter
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            /*if (listBoxAnimation.SelectedIndex != -1)
+            if (listBoxAnimation.SelectedIndex != -1)
             {
                 Animation.RemoveAt(listBoxAnimation.SelectedIndex);
-            }*/
-            int frame = 0;
-            foreach (FurModifier fur in Animation)
-            {
-                frame += fur.Steps;
-                fur.AddKey(frame, Character);
             }
-            /*if (Character.BipedNode != null)
-            {
-                for (int i = 0; i <= 37; i++)
-                {
-                    Character.BipedNode.TMController.CopyKeysFromTime(i, i + 38, 3);
-                }
-            }*/
+
         }
 
         private void buttonUp_Click(object sender, EventArgs e)
@@ -135,9 +140,8 @@ namespace WalkingCharacter
             int i = listBoxAnimation.SelectedIndex;
             if (i != -1 && i < Animation.Count - 1)
             {
-                Animation.Insert(i + 2, Animation.ElementAt(i));
-                Animation.RemoveAt(i);
-                listBoxAnimation.SelectedIndex++;
+                Animation.Insert(i, Animation.ElementAt(i + 1));
+                Animation.RemoveAt(i + 2);
             }
         }
 
@@ -146,16 +150,43 @@ namespace WalkingCharacter
             int i = listBoxAnimation.SelectedIndex;
             if (i != -1)
             {
-                IModifier mod = Animation.ElementAt(i);
+                IModifier mod = Animation[i];
                 if (mod != null && mod is FurModifier)
                 {
-                    //FurDialog editFurdialog = new FurDialog((FurModifier)mod);
-                    MessageBox.Show(mod.ToString());
-                    /*if (editFurdialog.ShowDialog() == DialogResult.OK)
+                    FurDialog editFurdialog = new FurDialog((FurModifier)mod);
+                    if (editFurdialog.ShowDialog() == DialogResult.OK)
                     {
                         Animation[i] = editFurdialog.FurModifier;
-                    }*/
+                    }
                 }
+            }
+        }
+
+        private void buttonCreateKeys_Click(object sender, EventArgs e)
+        {
+            int frame = 0;
+            int steps = 0; ;
+            foreach (FurModifier fur in Animation)
+            {
+                steps += fur.Steps;
+                frame += fur.Steps * Character.StepLength;
+                fur.AddKey(frame, Character);
+            }
+            CopySteps(steps);
+        }
+
+        private void CopySteps(int steps)
+        {
+            string interval = "(interval 0 " + (Character.StepLength - 1) + ")";
+            string biped = "($" + Character.BipedName + "...* as array)";
+
+            global.ExecuteMAXScriptScript("for bone in " + biped + " do (selectKeys bone.pos.controller " + interval + ")", false, null);
+            global.ExecuteMAXScriptScript("for bone in " + biped + " do (selectKeys bone.rotation.controller " + interval + ")", false, null);
+            global.ExecuteMAXScriptScript("fn bumpTime t delta = t + delta", false, null);
+            for (int i = 0; i <= steps; i++)
+            {
+                global.ExecuteMAXScriptScript("for bone in " + biped + " do (copyPasteKeys bone.pos.controller bumpTime " + (Character.StepLength - 1) + ")", false, null);
+                global.ExecuteMAXScriptScript("for bone in " + biped + " do (copyPasteKeys bone.rotation.controller bumpTime " + (Character.StepLength - 1) + ")", false, null);
             }
         }
     }

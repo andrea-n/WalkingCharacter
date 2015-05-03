@@ -21,6 +21,7 @@ namespace WalkingCharacter
 
         public FurDialog(FurModifier modifier)
         {
+            InitializeComponent();
             FurModifier = modifier;
             numericSteps.Value = FurModifier.Steps;
             numericScale.Value = FurModifier.Scale;

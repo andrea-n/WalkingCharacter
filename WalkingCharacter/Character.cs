@@ -11,12 +11,21 @@ namespace WalkingCharacter
     public class Character
     {
         public String Name { get; set; }
+
+        //Skeleton name
+        public String BipedName { get; set; }
+
+        //Number of frames in one character's step
+        public int StepLength { get; set; }
+
         public IINode Node { get; set; }
         public IINode BipedNode { get; set; }
 
-        public Character(String name)
+        public Character(String name, String bipedName, int stepLength)
         {
             Name = name;
+            BipedName = bipedName;
+            StepLength = stepLength;
         }
     }
 }
