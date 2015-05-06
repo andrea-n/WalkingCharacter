@@ -12,6 +12,8 @@ using Autodesk.Max;
 using MaxCustomControls;
 using System.IO;
 using System.Reflection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace WalkingCharacter
 {
@@ -176,11 +178,11 @@ namespace WalkingCharacter
         {
             int frame = 0;
             int steps = 0; ;
-            foreach (FurModifier fur in Animation)
+            foreach (IModifier modifier in Animation)
             {
-                fur.AddKey(frame, Character);
-                steps += fur.Steps;
-                frame += fur.Steps * Character.StepLength;
+                modifier.AddKey(frame, Character);
+                steps += modifier.Steps;
+                frame += modifier.Steps * Character.StepLength;
             }
             CopySteps(steps);
         }
@@ -197,6 +199,46 @@ namespace WalkingCharacter
             {
                 global.ExecuteMAXScriptScript("for bone in " + biped + " do (copyPasteKeys bone.pos.controller bumpTime " + (Character.StepLength - 1) + ")", false, null);
                 global.ExecuteMAXScriptScript("for bone in " + biped + " do (copyPasteKeys bone.rotation.controller bumpTime " + (Character.StepLength - 1) + ")", false, null);
+            }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.AddExtension = true;
+            saveDialog.Filter = "Walking Character Animation (*.wca)|*.wca";
+            saveDialog.DefaultExt = "wca";
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = saveDialog.FileName;
+
+                using (StreamWriter sw = new StreamWriter(path))
+                {
+                    sw.Write(JsonConvert.SerializeObject(Animation));
+                }
+            }
+        }
+
+        private void buttonLoad_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = "Walking Character Animation (*.wca)|*.wca";
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = openDialog.FileName;
+
+                Animation.Clear();
+
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    JArray jsonArray = JArray.Parse(sr.ReadToEnd());
+
+                    foreach (JObject jsonObject in jsonArray.Children<JObject>())
+                    {
+                        Type modifierType = Type.GetType(jsonObject.Property("ClassName").Value.ToString());
+                        Animation.Add((IModifier)JsonConvert.DeserializeObject(jsonObject.ToString(), modifierType));
+                    }
+                }
             }
         }
     }

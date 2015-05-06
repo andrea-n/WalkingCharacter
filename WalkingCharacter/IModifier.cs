@@ -14,6 +14,9 @@ namespace WalkingCharacter
         // How many steps of the character is modifier/shader applied
         int Steps { get; set; }
 
+        // For generic collection JSON (de)serializing
+        String ClassName { get; set; }
+
         String Name { get; set; }
 
         // In this method a modifier/shader should be applied on character

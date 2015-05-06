@@ -14,6 +14,7 @@ namespace WalkingCharacter
     {
         IGlobal global;
         public String Name { get; set; }
+        public String ClassName { get; set; }
         public int Steps { get; set; }
 
         // Fur color, R, G, B properties
@@ -39,6 +40,8 @@ namespace WalkingCharacter
 
         public FurModifier(String name, int steps, Color rootColor, Color tipColor, Color mutantColor, int cutLength, int segments, int randomScale, int rootThick, int hueVariation, int valueVariation, int mutant, int specular, int glossiness, int flyAway, int clump, int kink)
         {
+            ClassName = this.GetType().FullName;
+
             Name = name;
             Steps = steps;
 

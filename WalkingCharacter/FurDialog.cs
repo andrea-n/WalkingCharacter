@@ -39,7 +39,7 @@ namespace WalkingCharacter
             numericMutant.Value = FurModifier.Mutant;
             numericSpecular.Value = FurModifier.Specular;
             numericGlossiness.Value = FurModifier.Glossiness;
-            textBoxName.Name = FurModifier.Name;
+            textBoxName.Text = FurModifier.Name;
             buttonAdd.Text = "Edit";
         }
 
