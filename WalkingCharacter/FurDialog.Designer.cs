@@ -491,9 +491,9 @@
             this.labelFlyAway.AutoSize = true;
             this.labelFlyAway.Location = new System.Drawing.Point(19, 21);
             this.labelFlyAway.Name = "labelFlyAway";
-            this.labelFlyAway.Size = new System.Drawing.Size(49, 13);
+            this.labelFlyAway.Size = new System.Drawing.Size(90, 13);
             this.labelFlyAway.TabIndex = 13;
-            this.labelFlyAway.Text = "FlyAway:";
+            this.labelFlyAway.Text = "FlyAway strength:";
             // 
             // numericClump
             // 

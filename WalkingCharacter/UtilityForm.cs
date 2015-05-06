@@ -20,6 +20,7 @@ namespace WalkingCharacter
         public Character Character { get; private set; }
         public BindingList<IModifier> Animation { get; set; }
         Autodesk.Max.IGlobal global;
+        string file;
 
         public UtilityForm(IGlobal global)
         {
@@ -42,6 +43,43 @@ namespace WalkingCharacter
         {
             IInterface13 i = global.COREInterface14;
 
+            if (file == null)
+            {
+                file = FindFile();
+            }
+
+            if (file != null && File.Exists(file))
+            {
+                if (i.MergeFromFile(file, true, false, true, 3, null, 1000, 0) == 0)
+                {
+                    i.PushPrompt("Nothing merged");
+                }
+                else
+                {
+                    IINode characterNode = i.GetINodeByName(Character.Name);
+                    if (characterNode != null)
+                    {
+                        Character.Node = characterNode;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Couldn't find character's node in the scene");
+                    }
+                    IINode bipedNode = i.GetINodeByName(Character.BipedName);
+                    if (bipedNode != null)
+                    {
+                        Character.BipedNode = bipedNode;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Couldn't find character's skeleton in the scene");
+                    }
+                }
+            }
+        }
+
+        private string FindFile()
+        {
             string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             string filePath = Path.Combine(currentDirectory, "bin\\assemblies\\src\\Scene.max");
             FileInfo fileInfo = new FileInfo(filePath);
@@ -55,42 +93,14 @@ namespace WalkingCharacter
             }
             else
             {
-                MessageBox.Show("File src/Scene.max wasn't found. Please select the path.");
+                MessageBox.Show("File <3ds Max installation folder>/bin/assemblies/src/Scene.max wasn't found. Please select the path.");
                 openDialog = new OpenFileDialog();
                 if (openDialog.ShowDialog() == DialogResult.OK)
                 {
                     file = openDialog.FileName;
                 }
             }
-
-            if (file != null)
-            {
-                if (i.MergeFromFile(file, true, true, true, 3, null, 3, 2) == 0)
-                {
-                    i.PushPrompt("Nothing merged");
-                }
-                else
-                {
-                    IINode characterNode = i.GetINodeByName(Character.Name);
-                    if (characterNode != null)
-                    {
-                        Character.Node = characterNode;
-                    }
-                    else
-                    {
-                        i.PushPrompt("Couldn't find character's node in the scene");
-                    }
-                    IINode bipedNode = i.GetINodeByName(Character.BipedName);
-                    if (bipedNode != null)
-                    {
-                        Character.BipedNode = bipedNode;
-                    }
-                    else
-                    {
-                        i.PushPrompt("Couldn't find character's skeleton in the scene");
-                    }
-                }
-            }
+            return file;
         }
 
         private void buttonAddFur_Click(object sender, EventArgs e)
@@ -168,9 +178,9 @@ namespace WalkingCharacter
             int steps = 0; ;
             foreach (FurModifier fur in Animation)
             {
+                fur.AddKey(frame, Character);
                 steps += fur.Steps;
                 frame += fur.Steps * Character.StepLength;
-                fur.AddKey(frame, Character);
             }
             CopySteps(steps);
         }

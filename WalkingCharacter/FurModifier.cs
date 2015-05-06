@@ -52,7 +52,7 @@ namespace WalkingCharacter
             RootThick = rootThick;
 
             HueVariation = hueVariation;
-            valueVariation = valueVariation;
+            ValueVariation = valueVariation;
             Mutant = mutant;
             Specular = specular;
             Glossiness = glossiness;
@@ -86,13 +86,13 @@ namespace WalkingCharacter
                 global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialSpecular = " + Specular, false, null);
                 global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialGlossness = " + Glossiness, false, null);
 
-                global.ExecuteMAXScriptScript("$" + charName + modifier + ".FlyawayStren = " + FlyAway, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".FlyawayStren = " + FlyAway/100, false, null);
                 global.ExecuteMAXScriptScript("$" + charName + modifier + ".Clumps = " + Clump, false, null);
                 global.ExecuteMAXScriptScript("$" + charName + modifier + ".KinkTip = " + Kink, false, null);
 
                 global.ExecuteMAXScriptScript("$" + charName + modifier + ".FlyawayPerc = 100", false, null);
                 global.ExecuteMAXScriptScript("$" + charName + modifier + ".ClumpsStren = 1", false, null);
-                global.ExecuteMAXScriptScript("$" + charName + modifier + ".KinkRoot = " + Kink / 100, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".KinkRoot = 0", false, null);
 
             }
             else
@@ -123,13 +123,13 @@ namespace WalkingCharacter
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialSpecular.controller " + frame + ").value = " + Specular, false, null);
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialGlossness.controller " + frame + ").value = " + Glossiness, false, null);
 
-                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".FlyawayStren.controller " + frame + ").value = " + FlyAway, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".FlyawayStren.controller " + frame + ").value = " + FlyAway/100, false, null);
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".Clumps.controller " + frame + ").value = " + Clump, false, null);
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".KinkTip.controller " + frame + ").value = " + Kink, false, null);
 
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".FlyawayPerc.controller " + frame + ").value = 100", false, null);
-                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".ClumpsStren.controller " + frame + ").value = 1" + Scale, false, null);
-                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".KinkRoot.controller " + frame + ").value = " + Kink/100, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".ClumpsStren.controller " + frame + ").value = 1", false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".KinkRoot.controller " + frame + ").value = 0", false, null);
             }
             else
             {
