@@ -177,10 +177,14 @@ namespace WalkingCharacter
         private void buttonCreateKeys_Click(object sender, EventArgs e)
         {
             int frame = 0;
-            int steps = 0; ;
+            int steps = 0;
+            int transition = 0;
             foreach (IModifier modifier in Animation)
             {
+                transition = (modifier.Steps * Character.StepLength) / 10 * modifier.TransitionSpeed;
+                transition = Math.Max(transition, modifier.Steps * Character.StepLength - 3);
                 modifier.AddKey(frame, Character);
+                if (transition != 0) modifier.AddKey(frame + transition, Character);
                 steps += modifier.Steps;
                 frame += modifier.Steps * Character.StepLength;
             }

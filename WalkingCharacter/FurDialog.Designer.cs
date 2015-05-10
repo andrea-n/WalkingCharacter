@@ -34,6 +34,9 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.groupParametersFur = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.trackBarTransitionSpeed = new System.Windows.Forms.TrackBar();
+            this.labelTransitionSpeed = new System.Windows.Forms.Label();
             this.numericRootThick = new System.Windows.Forms.NumericUpDown();
             this.labelRootThick = new System.Windows.Forms.Label();
             this.numericRandomScale = new System.Windows.Forms.NumericUpDown();
@@ -68,8 +71,10 @@
             this.labelFlyAway = new System.Windows.Forms.Label();
             this.numericClump = new System.Windows.Forms.NumericUpDown();
             this.labelClump = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupAddFur.SuspendLayout();
             this.groupParametersFur.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarTransitionSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRootThick)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRandomScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSegments)).BeginInit();
@@ -140,6 +145,10 @@
             // 
             // groupParametersFur
             // 
+            this.groupParametersFur.Controls.Add(this.label2);
+            this.groupParametersFur.Controls.Add(this.label1);
+            this.groupParametersFur.Controls.Add(this.trackBarTransitionSpeed);
+            this.groupParametersFur.Controls.Add(this.labelTransitionSpeed);
             this.groupParametersFur.Controls.Add(this.numericRootThick);
             this.groupParametersFur.Controls.Add(this.labelRootThick);
             this.groupParametersFur.Controls.Add(this.numericRandomScale);
@@ -152,14 +161,41 @@
             this.groupParametersFur.Controls.Add(this.labelSteps);
             this.groupParametersFur.Location = new System.Drawing.Point(12, 12);
             this.groupParametersFur.Name = "groupParametersFur";
-            this.groupParametersFur.Size = new System.Drawing.Size(232, 191);
+            this.groupParametersFur.Size = new System.Drawing.Size(232, 214);
             this.groupParametersFur.TabIndex = 1;
             this.groupParametersFur.TabStop = false;
             this.groupParametersFur.Text = "Parameters";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(119, 77);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 12);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Slow";
+            // 
+            // trackBarTransitionSpeed
+            // 
+            this.trackBarTransitionSpeed.Location = new System.Drawing.Point(114, 50);
+            this.trackBarTransitionSpeed.Name = "trackBarTransitionSpeed";
+            this.trackBarTransitionSpeed.Size = new System.Drawing.Size(112, 45);
+            this.trackBarTransitionSpeed.TabIndex = 13;
+            this.trackBarTransitionSpeed.Tag = "";
+            // 
+            // labelTransitionSpeed
+            // 
+            this.labelTransitionSpeed.AutoSize = true;
+            this.labelTransitionSpeed.Location = new System.Drawing.Point(19, 53);
+            this.labelTransitionSpeed.Name = "labelTransitionSpeed";
+            this.labelTransitionSpeed.Size = new System.Drawing.Size(91, 13);
+            this.labelTransitionSpeed.TabIndex = 12;
+            this.labelTransitionSpeed.Text = "Transition to next:";
+            // 
             // numericRootThick
             // 
-            this.numericRootThick.Location = new System.Drawing.Point(122, 131);
+            this.numericRootThick.Location = new System.Drawing.Point(122, 178);
             this.numericRootThick.Name = "numericRootThick";
             this.numericRootThick.Size = new System.Drawing.Size(96, 20);
             this.numericRootThick.TabIndex = 9;
@@ -172,7 +208,7 @@
             // labelRootThick
             // 
             this.labelRootThick.AutoSize = true;
-            this.labelRootThick.Location = new System.Drawing.Point(19, 133);
+            this.labelRootThick.Location = new System.Drawing.Point(19, 180);
             this.labelRootThick.Name = "labelRootThick";
             this.labelRootThick.Size = new System.Drawing.Size(81, 13);
             this.labelRootThick.TabIndex = 8;
@@ -180,7 +216,7 @@
             // 
             // numericRandomScale
             // 
-            this.numericRandomScale.Location = new System.Drawing.Point(122, 105);
+            this.numericRandomScale.Location = new System.Drawing.Point(122, 152);
             this.numericRandomScale.Name = "numericRandomScale";
             this.numericRandomScale.Size = new System.Drawing.Size(96, 20);
             this.numericRandomScale.TabIndex = 11;
@@ -193,7 +229,7 @@
             // labelRandomScale
             // 
             this.labelRandomScale.AutoSize = true;
-            this.labelRandomScale.Location = new System.Drawing.Point(19, 107);
+            this.labelRandomScale.Location = new System.Drawing.Point(19, 154);
             this.labelRandomScale.Name = "labelRandomScale";
             this.labelRandomScale.Size = new System.Drawing.Size(78, 13);
             this.labelRandomScale.TabIndex = 10;
@@ -201,7 +237,7 @@
             // 
             // numericSegments
             // 
-            this.numericSegments.Location = new System.Drawing.Point(122, 77);
+            this.numericSegments.Location = new System.Drawing.Point(122, 124);
             this.numericSegments.Name = "numericSegments";
             this.numericSegments.Size = new System.Drawing.Size(96, 20);
             this.numericSegments.TabIndex = 9;
@@ -214,7 +250,7 @@
             // labelSegments
             // 
             this.labelSegments.AutoSize = true;
-            this.labelSegments.Location = new System.Drawing.Point(19, 79);
+            this.labelSegments.Location = new System.Drawing.Point(19, 126);
             this.labelSegments.Name = "labelSegments";
             this.labelSegments.Size = new System.Drawing.Size(57, 13);
             this.labelSegments.TabIndex = 8;
@@ -222,7 +258,7 @@
             // 
             // numericScale
             // 
-            this.numericScale.Location = new System.Drawing.Point(122, 50);
+            this.numericScale.Location = new System.Drawing.Point(122, 98);
             this.numericScale.Name = "numericScale";
             this.numericScale.Size = new System.Drawing.Size(96, 20);
             this.numericScale.TabIndex = 7;
@@ -235,7 +271,7 @@
             // labelScale
             // 
             this.labelScale.AutoSize = true;
-            this.labelScale.Location = new System.Drawing.Point(19, 52);
+            this.labelScale.Location = new System.Drawing.Point(19, 100);
             this.labelScale.Name = "labelScale";
             this.labelScale.Size = new System.Drawing.Size(37, 13);
             this.labelScale.TabIndex = 6;
@@ -261,7 +297,7 @@
             // labelSteps
             // 
             this.labelSteps.AutoSize = true;
-            this.labelSteps.Location = new System.Drawing.Point(19, 26);
+            this.labelSteps.Location = new System.Drawing.Point(19, 29);
             this.labelSteps.Name = "labelSteps";
             this.labelSteps.Size = new System.Drawing.Size(84, 13);
             this.labelSteps.TabIndex = 0;
@@ -457,22 +493,22 @@
             this.groupEffects.Controls.Add(this.labelFlyAway);
             this.groupEffects.Controls.Add(this.numericClump);
             this.groupEffects.Controls.Add(this.labelClump);
-            this.groupEffects.Location = new System.Drawing.Point(12, 209);
+            this.groupEffects.Location = new System.Drawing.Point(12, 232);
             this.groupEffects.Name = "groupEffects";
-            this.groupEffects.Size = new System.Drawing.Size(232, 135);
+            this.groupEffects.Size = new System.Drawing.Size(232, 112);
             this.groupEffects.TabIndex = 9;
             this.groupEffects.TabStop = false;
             // 
             // numericKink
             // 
-            this.numericKink.Location = new System.Drawing.Point(122, 73);
+            this.numericKink.Location = new System.Drawing.Point(122, 75);
             this.numericKink.Name = "numericKink";
             this.numericKink.Size = new System.Drawing.Size(96, 20);
             this.numericKink.TabIndex = 14;
             // 
             // numericFlyAway
             // 
-            this.numericFlyAway.Location = new System.Drawing.Point(122, 19);
+            this.numericFlyAway.Location = new System.Drawing.Point(122, 21);
             this.numericFlyAway.Name = "numericFlyAway";
             this.numericFlyAway.Size = new System.Drawing.Size(96, 20);
             this.numericFlyAway.TabIndex = 15;
@@ -480,7 +516,7 @@
             // labelKink
             // 
             this.labelKink.AutoSize = true;
-            this.labelKink.Location = new System.Drawing.Point(19, 75);
+            this.labelKink.Location = new System.Drawing.Point(19, 77);
             this.labelKink.Name = "labelKink";
             this.labelKink.Size = new System.Drawing.Size(31, 13);
             this.labelKink.TabIndex = 12;
@@ -489,7 +525,7 @@
             // labelFlyAway
             // 
             this.labelFlyAway.AutoSize = true;
-            this.labelFlyAway.Location = new System.Drawing.Point(19, 21);
+            this.labelFlyAway.Location = new System.Drawing.Point(19, 23);
             this.labelFlyAway.Name = "labelFlyAway";
             this.labelFlyAway.Size = new System.Drawing.Size(90, 13);
             this.labelFlyAway.TabIndex = 13;
@@ -497,7 +533,7 @@
             // 
             // numericClump
             // 
-            this.numericClump.Location = new System.Drawing.Point(122, 47);
+            this.numericClump.Location = new System.Drawing.Point(122, 49);
             this.numericClump.Name = "numericClump";
             this.numericClump.Size = new System.Drawing.Size(96, 20);
             this.numericClump.TabIndex = 17;
@@ -505,11 +541,21 @@
             // labelClump
             // 
             this.labelClump.AutoSize = true;
-            this.labelClump.Location = new System.Drawing.Point(19, 49);
+            this.labelClump.Location = new System.Drawing.Point(19, 51);
             this.labelClump.Name = "labelClump";
-            this.labelClump.Size = new System.Drawing.Size(39, 13);
+            this.labelClump.Size = new System.Drawing.Size(80, 13);
             this.labelClump.TabIndex = 16;
-            this.labelClump.Text = "Clump:";
+            this.labelClump.Text = "Clump strength:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(192, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 12);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Fast";
             // 
             // FurDialog
             // 
@@ -526,6 +572,7 @@
             this.groupAddFur.PerformLayout();
             this.groupParametersFur.ResumeLayout(false);
             this.groupParametersFur.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarTransitionSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRootThick)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRandomScale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSegments)).EndInit();
@@ -589,5 +636,9 @@
         private System.Windows.Forms.Label labelValueVariation;
         private System.Windows.Forms.Label labelHueVariation;
         private System.Windows.Forms.NumericUpDown numericHueVariation;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar trackBarTransitionSpeed;
+        private System.Windows.Forms.Label labelTransitionSpeed;
+        private System.Windows.Forms.Label label2;
     }
 }

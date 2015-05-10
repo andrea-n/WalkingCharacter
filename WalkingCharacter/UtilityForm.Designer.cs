@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupMerge = new System.Windows.Forms.GroupBox();
+            this.buttonLoad = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.groupAnimation = new System.Windows.Forms.GroupBox();
@@ -42,8 +44,6 @@
             this.listBoxAnimation = new System.Windows.Forms.ListBox();
             this.groupCreateAnimation = new System.Windows.Forms.GroupBox();
             this.buttonCreateKeys = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonLoad = new System.Windows.Forms.Button();
             this.groupMerge.SuspendLayout();
             this.groupAnimation.SuspendLayout();
             this.groupBoxEditAnimation.SuspendLayout();
@@ -63,6 +63,26 @@
             this.groupMerge.TabIndex = 0;
             this.groupMerge.TabStop = false;
             this.groupMerge.Text = "Merge character to the scene";
+            // 
+            // buttonLoad
+            // 
+            this.buttonLoad.Location = new System.Drawing.Point(344, 22);
+            this.buttonLoad.Name = "buttonLoad";
+            this.buttonLoad.Size = new System.Drawing.Size(75, 23);
+            this.buttonLoad.TabIndex = 3;
+            this.buttonLoad.Text = "Load";
+            this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(246, 22);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 2;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonReset
             // 
@@ -197,26 +217,6 @@
             this.buttonCreateKeys.Text = "Create animation";
             this.buttonCreateKeys.UseVisualStyleBackColor = true;
             this.buttonCreateKeys.Click += new System.EventHandler(this.buttonCreateKeys_Click);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(246, 22);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 2;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // buttonLoad
-            // 
-            this.buttonLoad.Location = new System.Drawing.Point(344, 22);
-            this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(75, 23);
-            this.buttonLoad.TabIndex = 3;
-            this.buttonLoad.Text = "Load";
-            this.buttonLoad.UseVisualStyleBackColor = true;
-            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
             // UtilityForm
             // 

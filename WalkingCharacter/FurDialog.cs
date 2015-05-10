@@ -24,6 +24,7 @@ namespace WalkingCharacter
             InitializeComponent();
             FurModifier = modifier;
             numericSteps.Value = FurModifier.Steps;
+            trackBarTransitionSpeed.Value = FurModifier.TransitionSpeed;
             numericScale.Value = FurModifier.Scale;
             numericSegments.Value = FurModifier.Segments;
             numericRandomScale.Value = FurModifier.RandomScale;
@@ -45,7 +46,7 @@ namespace WalkingCharacter
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            FurModifier = new FurModifier(textBoxName.Text, (int)numericSteps.Value, buttonRootColor.BackColor, buttonTipColor.BackColor, buttonMutantColor.BackColor, (int)numericScale.Value, (int)numericSegments.Value, (int)numericRandomScale.Value, (int)numericRootThick.Value, (int)numericHueVariation.Value, (int)numericValueVariation.Value, (int)numericMutant.Value, (int)numericSpecular.Value, (int)numericGlossiness.Value, (int)numericFlyAway.Value, (int)numericClump.Value, (int)numericKink.Value);
+            FurModifier = new FurModifier(textBoxName.Text, (int)numericSteps.Value, (int)trackBarTransitionSpeed.Value, buttonRootColor.BackColor, buttonTipColor.BackColor, buttonMutantColor.BackColor, (int)numericScale.Value, (int)numericSegments.Value, (int)numericRandomScale.Value, (int)numericRootThick.Value, (int)numericHueVariation.Value, (int)numericValueVariation.Value, (int)numericMutant.Value, (int)numericSpecular.Value, (int)numericGlossiness.Value, (int)numericFlyAway.Value, (int)numericClump.Value, (int)numericKink.Value);
         }
 
         private void buttonRootColor_Click(object sender, EventArgs e)

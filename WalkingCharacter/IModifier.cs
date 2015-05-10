@@ -14,6 +14,9 @@ namespace WalkingCharacter
         // How many steps of the character is modifier/shader applied
         int Steps { get; set; }
 
+        // Speed of transition to next key
+        int TransitionSpeed { get; set; }
+
         // For generic collection JSON (de)serializing
         String ClassName { get; set; }
 
@@ -24,5 +27,6 @@ namespace WalkingCharacter
 
         // Adds key to timeline with new settings of modifier
         void AddKey(int frame, Character character);
+
     }
 }
