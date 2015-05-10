@@ -76,6 +76,7 @@
             // 
             // buttonSave
             // 
+            this.buttonSave.Enabled = false;
             this.buttonSave.Location = new System.Drawing.Point(246, 22);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
@@ -92,6 +93,7 @@
             this.buttonReset.TabIndex = 1;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // buttonCreate
             // 
@@ -210,6 +212,7 @@
             // 
             // buttonCreateKeys
             // 
+            this.buttonCreateKeys.Enabled = false;
             this.buttonCreateKeys.Location = new System.Drawing.Point(46, 24);
             this.buttonCreateKeys.Name = "buttonCreateKeys";
             this.buttonCreateKeys.Size = new System.Drawing.Size(114, 23);
