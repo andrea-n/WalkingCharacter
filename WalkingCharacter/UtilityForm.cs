@@ -30,6 +30,7 @@ namespace WalkingCharacter
             this.global = global;
             Character = new Character("WalkingCharacterBody", "WalkingCharacterBip", 38);
             Animation = new BindingList<IModifier>();
+            Animation.ListChanged += Animation_ListChanged;
             listBoxAnimation.DataSource = Animation;
             listBoxAnimation.DisplayMember = "Name";
             listBoxAnimation.ValueMember = "Name";
@@ -182,7 +183,7 @@ namespace WalkingCharacter
             foreach (IModifier modifier in Animation)
             {
                 transition = (modifier.Steps * Character.StepLength) / 10 * modifier.TransitionSpeed;
-                transition = Math.Max(transition, modifier.Steps * Character.StepLength - 3);
+                transition = Math.Min(transition, modifier.Steps * Character.StepLength - 3);
                 modifier.AddKey(frame, Character);
                 if (transition != 0) modifier.AddKey(frame + transition, Character);
                 steps += modifier.Steps;
@@ -244,6 +245,11 @@ namespace WalkingCharacter
                     }
                 }
             }
+        }
+
+        void Animation_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            buttonSave.Enabled = (Animation.Count != 0);
         }
     }
 }
