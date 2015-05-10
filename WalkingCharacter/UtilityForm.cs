@@ -180,6 +180,7 @@ namespace WalkingCharacter
             int frame = 0;
             int steps = 0;
             int transition = 0;
+            DeleteKeys();
             foreach (IModifier modifier in Animation)
             {
                 transition = (modifier.Steps * Character.StepLength) / 10 * modifier.TransitionSpeed;
@@ -205,6 +206,12 @@ namespace WalkingCharacter
                 global.ExecuteMAXScriptScript("for bone in " + biped + " do (copyPasteKeys bone.pos.controller bumpTime " + (Character.StepLength - 1) + ")", false, null);
                 global.ExecuteMAXScriptScript("for bone in " + biped + " do (copyPasteKeys bone.rotation.controller bumpTime " + (Character.StepLength - 1) + ")", false, null);
             }
+            global.ExecuteMAXScriptScript("animationRange = interval 0 " + steps * Character.StepLength, false, null);
+        }
+
+        private void DeleteKeys()
+        {
+            global.ExecuteMAXScriptScript("deleteKeys objects #allKeys", false, null);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -250,6 +257,12 @@ namespace WalkingCharacter
         void Animation_ListChanged(object sender, ListChangedEventArgs e)
         {
             buttonSave.Enabled = (Animation.Count != 0);
+            buttonCreateKeys.Enabled = (Animation.Count != 0);
+        }
+
+        private void UtilityForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("WalkingCharacter form is closed");
         }
     }
 }

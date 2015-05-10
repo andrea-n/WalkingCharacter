@@ -129,7 +129,7 @@ namespace WalkingCharacter
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialGlossness.controller " + frame + ").value = " + Glossiness, false, null);
 
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".FlyawayStren.controller " + frame + ").value = " + FlyAway/100, false, null);
-                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".ClumpStren.controller " + frame + ").value = " + Clump/100, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".ClumpsStren.controller " + frame + ").value = " + Clump/100, false, null);
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".KinkTip.controller " + frame + ").value = " + Kink, false, null);
 
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".FlyawayPerc.controller " + frame + ").value = 100", false, null);

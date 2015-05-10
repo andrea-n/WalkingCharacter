@@ -29,7 +29,10 @@ namespace WalkingCharacter
             this.ip = ip;
             this.iu = iu;
 
-            form = new UtilityForm(global);
+            if (form == null)
+            {
+                form = new UtilityForm(global);
+            }
             form.Show();
 
             ip.PushPrompt("Walking character utility");
@@ -38,7 +41,6 @@ namespace WalkingCharacter
         // Called when the user is finished editing an object's parameters
         public override void EndEditParams(IInterface ip, IIUtil iu)
         {
-            form.Hide();
             ip.PopPrompt();
         }
     }

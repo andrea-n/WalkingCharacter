@@ -228,6 +228,7 @@
             this.Controls.Add(this.groupMerge);
             this.Name = "UtilityForm";
             this.Text = "Walking character";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UtilityForm_FormClosed);
             this.Load += new System.EventHandler(this.UtilityForm_Load);
             this.groupMerge.ResumeLayout(false);
             this.groupAnimation.ResumeLayout(false);
