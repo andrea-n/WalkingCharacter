@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Autodesk.Max;
+using Autodesk.Max.Plugins;
 
 namespace WalkingCharacter
 {
-    public class WalkingCharacterUtility : Autodesk.Max.Plugins.UtilityObj
+    public class WalkingCharacterUtility : UtilityObj
     {
         IGlobal global;
         IInterface ip;
@@ -28,6 +29,8 @@ namespace WalkingCharacter
         {
             this.ip = ip;
             this.iu = iu;
+
+            System.Windows.Forms.MessageBox.Show("sdfsfsdf");
 
             if (form == null)
             {

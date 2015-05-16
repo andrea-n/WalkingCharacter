@@ -21,15 +21,19 @@ namespace WalkingCharacter
     {
         public Character Character { get; private set; }
         public BindingList<IModifier> Animation { get; set; }
-        Autodesk.Max.IGlobal global;
+        IGlobal global;
+        IInterface13 i;
         string file;
 
         public UtilityForm(IGlobal global)
         {
             InitializeComponent();
             this.global = global;
+            i = global.COREInterface14;
+
             Character = new Character("WalkingCharacterBody", "WalkingCharacterBip", 38);
             Animation = new BindingList<IModifier>();
+
             Animation.ListChanged += Animation_ListChanged;
             listBoxAnimation.DataSource = Animation;
             listBoxAnimation.DisplayMember = "Name";
@@ -38,48 +42,41 @@ namespace WalkingCharacter
 
         private void UtilityForm_Load(object sender, EventArgs e)
         {
-
+            GetNodes();
         }
 
         // Merge character from file with current scene
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            IInterface13 i = global.COREInterface14;
-
             if (file == null)
             {
                 file = FindFile();
             }
 
-            if (file != null && File.Exists(file))
+            if (file != null && File.Exists(file) && i.MergeFromFile(file, true, false, true, 3, null, 1000, 0) != 0)
             {
-                if (i.MergeFromFile(file, true, false, true, 3, null, 1000, 0) == 0)
+                if (!GetNodes())
                 {
-                    i.PushPrompt("Nothing merged");
-                }
-                else
-                {
-                    IINode characterNode = i.GetINodeByName(Character.Name);
-                    if (characterNode != null)
-                    {
-                        Character.Node = characterNode;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Couldn't find character's node in the scene");
-                    }
-                    IINode bipedNode = i.GetINodeByName(Character.BipedName);
-                    if (bipedNode != null)
-                    {
-                        Character.BipedNode = bipedNode;
-                        global.ExecuteMAXScriptScript("animationRange = interval 0 " + (Character.StepLength - 1), false, null);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Couldn't find character's skeleton in the scene");
-                    }
+                    MessageBox.Show("Merged scene doesn't contain '" + Character.Name + "' and '" + Character.BipedName + "' objects.");
                 }
             }
+        }
+
+        private bool GetNodes()
+        {
+            IINode characterNode = i.GetINodeByName(Character.Name);
+            IINode bipedNode = i.GetINodeByName(Character.BipedName);
+            if (characterNode != null && bipedNode != null)
+            {
+                Character.Node = characterNode;
+                Character.BipedNode = bipedNode;
+                global.ExecuteMAXScriptScript("animationRange = interval 0 " + (Character.StepLength - 1), false, null);
+
+                groupAnimation.Enabled = true;
+                groupCreateAnimation.Enabled = true;
+                return true;
+            }
+            else return false;
         }
 
         private string FindFile()
@@ -121,12 +118,12 @@ namespace WalkingCharacter
         {
             if (listBoxAnimation.SelectedIndex != -1)
             {
-                groupBoxEditAnimation.Enabled = true;
+                groupEditAnimation.Enabled = true;
                 Animation.ElementAt(listBoxAnimation.SelectedIndex).Apply(Character);
             }
             else
             {
-                groupBoxEditAnimation.Enabled = false;
+                groupEditAnimation.Enabled = false;
             }
         }
 
@@ -269,12 +266,9 @@ namespace WalkingCharacter
         {
             buttonSave.Enabled = (Animation.Count != 0);
             buttonCreateKeys.Enabled = (Animation.Count != 0);
+            groupEditAnimation.Enabled = (Animation.Count != 0);
         }
 
-        private void UtilityForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            MessageBox.Show("WalkingCharacter form is closed");
-        }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {

@@ -29,7 +29,7 @@ namespace WalkingCharacter
             numericSegments.Value = FurModifier.Segments;
             numericRandomScale.Value = FurModifier.RandomScale;
             numericRootThick.Value = FurModifier.RootThick;
-            numericFlyAway.Value = FurModifier.FlyAway;
+            numericFlyAway.Value = FurModifier.Flyaway;
             numericClump.Value = FurModifier.Clump;
             numericKink.Value = FurModifier.Kink;
             buttonRootColor.BackColor = FurModifier.RootColor;

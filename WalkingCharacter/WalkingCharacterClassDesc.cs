@@ -11,11 +11,6 @@ namespace WalkingCharacter
 {
     class WalkingCharacterClassDesc : ClassDesc2
     {
-        public IGlobal Global
-        {
-            get { return this.global; }
-        }
-
         IGlobal global;
         internal static IClass_ID WalkingCharacterClassID;
 

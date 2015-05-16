@@ -34,6 +34,7 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.groupParametersFur = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.trackBarTransitionSpeed = new System.Windows.Forms.TrackBar();
             this.labelTransitionSpeed = new System.Windows.Forms.Label();
@@ -71,7 +72,6 @@
             this.labelFlyAway = new System.Windows.Forms.Label();
             this.numericClump = new System.Windows.Forms.NumericUpDown();
             this.labelClump = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupAddFur.SuspendLayout();
             this.groupParametersFur.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTransitionSpeed)).BeginInit();
@@ -165,6 +165,16 @@
             this.groupParametersFur.TabIndex = 1;
             this.groupParametersFur.TabStop = false;
             this.groupParametersFur.Text = "Parameters";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(192, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 12);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Fast";
             // 
             // label1
             // 
@@ -527,9 +537,9 @@
             this.labelFlyAway.AutoSize = true;
             this.labelFlyAway.Location = new System.Drawing.Point(19, 23);
             this.labelFlyAway.Name = "labelFlyAway";
-            this.labelFlyAway.Size = new System.Drawing.Size(90, 13);
+            this.labelFlyAway.Size = new System.Drawing.Size(89, 13);
             this.labelFlyAway.TabIndex = 13;
-            this.labelFlyAway.Text = "FlyAway strength:";
+            this.labelFlyAway.Text = "Flyaway strength:";
             // 
             // numericClump
             // 
@@ -547,20 +557,12 @@
             this.labelClump.TabIndex = 16;
             this.labelClump.Text = "Clump strength:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(192, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 12);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Fast";
-            // 
             // FurDialog
             // 
+            this.AcceptButton = this.buttonAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(481, 358);
             this.Controls.Add(this.groupEffects);
             this.Controls.Add(this.groupMaterial);

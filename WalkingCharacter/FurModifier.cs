@@ -35,7 +35,7 @@ namespace WalkingCharacter
         public int Specular { get; set; }
         public int Glossiness { get; set; }
 
-        public int FlyAway { get; set; }
+        public int Flyaway { get; set; }
         public int Clump { get; set; }
         public int Kink { get; set; }
 
@@ -62,7 +62,7 @@ namespace WalkingCharacter
             Specular = specular;
             Glossiness = glossiness;
 
-            FlyAway = flyAway;
+            Flyaway = flyAway;
             Clump = clump;
             Kink = kink;
 
@@ -91,7 +91,7 @@ namespace WalkingCharacter
                 global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialSpecular = " + Specular, false, null);
                 global.ExecuteMAXScriptScript("$" + charName + modifier + ".MaterialGlossness = " + Glossiness, false, null);
 
-                global.ExecuteMAXScriptScript("$" + charName + modifier + ".FlyawayStren = " + FlyAway/100, false, null);
+                global.ExecuteMAXScriptScript("$" + charName + modifier + ".FlyawayStren = " + Flyaway/100, false, null);
                 global.ExecuteMAXScriptScript("$" + charName + modifier + ".ClumpsStren = " + Clump/100, false, null);
                 global.ExecuteMAXScriptScript("$" + charName + modifier + ".KinkTip = " + Kink, false, null);
 
@@ -128,7 +128,7 @@ namespace WalkingCharacter
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialSpecular.controller " + frame + ").value = " + Specular, false, null);
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".MaterialGlossness.controller " + frame + ").value = " + Glossiness, false, null);
 
-                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".FlyawayStren.controller " + frame + ").value = " + FlyAway/100, false, null);
+                global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".FlyawayStren.controller " + frame + ").value = " + Flyaway/100, false, null);
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".ClumpsStren.controller " + frame + ").value = " + Clump/100, false, null);
                 global.ExecuteMAXScriptScript("(addnewkey $" + charName + modifier + ".KinkTip.controller " + frame + ").value = " + Kink, false, null);
 
@@ -138,7 +138,7 @@ namespace WalkingCharacter
             }
             else
             {
-                MessageBox.Show("Can't find 'WalkingCharacterBody'");
+                MessageBox.Show("Could't find character object.");
             }
         }
 
