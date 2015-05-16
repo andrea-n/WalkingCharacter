@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupMerge = new System.Windows.Forms.GroupBox();
-            this.buttonLoad = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonCreate = new System.Windows.Forms.Button();
+            this.buttonLoad = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.groupAnimation = new System.Windows.Forms.GroupBox();
             this.groupEditAnimation = new System.Windows.Forms.GroupBox();
             this.buttonEdit = new System.Windows.Forms.Button();
@@ -64,6 +64,26 @@
             this.groupMerge.TabStop = false;
             this.groupMerge.Text = "Merge character to the scene";
             // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(112, 22);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(75, 23);
+            this.buttonReset.TabIndex = 1;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
+            // buttonCreate
+            // 
+            this.buttonCreate.Location = new System.Drawing.Point(31, 22);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(75, 23);
+            this.buttonCreate.TabIndex = 0;
+            this.buttonCreate.Text = "Create";
+            this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            // 
             // buttonLoad
             // 
             this.buttonLoad.Location = new System.Drawing.Point(110, 22);
@@ -85,26 +105,6 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // buttonReset
-            // 
-            this.buttonReset.Location = new System.Drawing.Point(112, 22);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(75, 23);
-            this.buttonReset.TabIndex = 1;
-            this.buttonReset.Text = "Reset";
-            this.buttonReset.UseVisualStyleBackColor = true;
-            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
-            // 
-            // buttonCreate
-            // 
-            this.buttonCreate.Location = new System.Drawing.Point(31, 22);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(75, 23);
-            this.buttonCreate.TabIndex = 0;
-            this.buttonCreate.Text = "Create";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
-            // 
             // groupAnimation
             // 
             this.groupAnimation.AutoSize = true;
@@ -114,7 +114,7 @@
             this.groupAnimation.Enabled = false;
             this.groupAnimation.Location = new System.Drawing.Point(12, 80);
             this.groupAnimation.Name = "groupAnimation";
-            this.groupAnimation.Size = new System.Drawing.Size(497, 247);
+            this.groupAnimation.Size = new System.Drawing.Size(448, 247);
             this.groupAnimation.TabIndex = 1;
             this.groupAnimation.TabStop = false;
             this.groupAnimation.Text = "Animation";
@@ -128,13 +128,13 @@
             this.groupEditAnimation.Enabled = false;
             this.groupEditAnimation.Location = new System.Drawing.Point(233, 130);
             this.groupEditAnimation.Name = "groupEditAnimation";
-            this.groupEditAnimation.Size = new System.Drawing.Size(215, 98);
+            this.groupEditAnimation.Size = new System.Drawing.Size(196, 98);
             this.groupEditAnimation.TabIndex = 6;
             this.groupEditAnimation.TabStop = false;
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(110, 25);
+            this.buttonEdit.Location = new System.Drawing.Point(99, 25);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 23);
             this.buttonEdit.TabIndex = 2;
@@ -144,7 +144,7 @@
             // 
             // buttonRemove
             // 
-            this.buttonRemove.Location = new System.Drawing.Point(110, 54);
+            this.buttonRemove.Location = new System.Drawing.Point(99, 54);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(75, 23);
             this.buttonRemove.TabIndex = 5;
@@ -154,7 +154,7 @@
             // 
             // buttonDown
             // 
-            this.buttonDown.Location = new System.Drawing.Point(29, 54);
+            this.buttonDown.Location = new System.Drawing.Point(18, 54);
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(75, 23);
             this.buttonDown.TabIndex = 4;
@@ -164,7 +164,7 @@
             // 
             // buttonUp
             // 
-            this.buttonUp.Location = new System.Drawing.Point(29, 25);
+            this.buttonUp.Location = new System.Drawing.Point(18, 25);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(75, 23);
             this.buttonUp.TabIndex = 3;
@@ -177,14 +177,14 @@
             this.groupAnimationAdd.Controls.Add(this.buttonAddFur);
             this.groupAnimationAdd.Location = new System.Drawing.Point(233, 31);
             this.groupAnimationAdd.Name = "groupAnimationAdd";
-            this.groupAnimationAdd.Size = new System.Drawing.Size(215, 96);
+            this.groupAnimationAdd.Size = new System.Drawing.Size(196, 96);
             this.groupAnimationAdd.TabIndex = 1;
             this.groupAnimationAdd.TabStop = false;
             this.groupAnimationAdd.Text = "Add new";
             // 
             // buttonAddFur
             // 
-            this.buttonAddFur.Location = new System.Drawing.Point(29, 19);
+            this.buttonAddFur.Location = new System.Drawing.Point(18, 19);
             this.buttonAddFur.Name = "buttonAddFur";
             this.buttonAddFur.Size = new System.Drawing.Size(75, 23);
             this.buttonAddFur.TabIndex = 2;
@@ -238,13 +238,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 410);
+            this.ClientSize = new System.Drawing.Size(471, 410);
             this.Controls.Add(this.groupSaveLoad);
             this.Controls.Add(this.groupCreateAnimation);
             this.Controls.Add(this.groupAnimation);
             this.Controls.Add(this.groupMerge);
             this.Name = "UtilityForm";
             this.Text = "Walking character";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UtilityForm_FormClosed);
             this.Load += new System.EventHandler(this.UtilityForm_Load);
             this.groupMerge.ResumeLayout(false);
             this.groupAnimation.ResumeLayout(false);

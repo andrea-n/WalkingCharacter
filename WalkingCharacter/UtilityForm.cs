@@ -23,13 +23,15 @@ namespace WalkingCharacter
         public BindingList<IModifier> Animation { get; set; }
         IGlobal global;
         IInterface13 i;
+        IIUtil iu;
         string file;
 
-        public UtilityForm(IGlobal global)
+        public UtilityForm(IGlobal global, IIUtil iu)
         {
             InitializeComponent();
             this.global = global;
             i = global.COREInterface14;
+            this.iu = iu;
 
             Character = new Character("WalkingCharacterBody", "WalkingCharacterBip", 38);
             Animation = new BindingList<IModifier>();
@@ -273,6 +275,11 @@ namespace WalkingCharacter
         private void buttonReset_Click(object sender, EventArgs e)
         {
             this.DeleteKeys();
+        }
+
+        private void UtilityForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            iu.CloseUtility();
         }
     }
 }

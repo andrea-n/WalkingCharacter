@@ -34,7 +34,7 @@ namespace WalkingCharacter
 
             if (form == null)
             {
-                form = new UtilityForm(global);
+                form = new UtilityForm(global, iu);
             }
             form.Show();
 
